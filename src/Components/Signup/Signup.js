@@ -13,6 +13,7 @@ export default function Signup() {
   const [password,setpassword]=useState('')
 
   const handlesubmit=(e)=>{
+    e.preventDefault()
     console.log(username);
   }
 
