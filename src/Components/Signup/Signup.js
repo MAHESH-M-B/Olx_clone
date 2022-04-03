@@ -1,6 +1,7 @@
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
 
 import Logo from '../../olx-logo.png';
+import { FirebaseContext } from '../../store/FirebaseContext';
 import './Signup.css';
 
 export default function Signup() {
@@ -11,10 +12,10 @@ export default function Signup() {
   const [email,setemail]=useState('')
   const [number,setnumber]=useState('')
   const [password,setpassword]=useState('')
-
+  const {firbase}=useContext(FirebaseContext)
   const handlesubmit=(e)=>{
     e.preventDefault()
-    console.log(username);
+    console.log(firbase);
   }
 
 
