@@ -13,9 +13,16 @@ export default function Signup() {
   const [number,setnumber]=useState('')
   const [password,setpassword]=useState('')
   const {firebase}=useContext(FirebaseContext)
+
+
+
+
+
   const handlesubmit=(e)=>{
     e.preventDefault()
-    console.log(firebase);
+    firebase.auth().createUserWithEmailAndPassword(email,password).then((result)=>{
+      result.user.updateProfile({displayName:username})
+    })
   }
 
 
@@ -24,7 +31,7 @@ export default function Signup() {
     <div>
       <div className="signupParentDiv">
         <img width="200px" height="200px" src={Logo}></img>
-        <form>
+        <form  onSubmit={handlesubmit}>
           <label htmlFor="fname">Username</label>
           <br />
           <input
@@ -75,7 +82,7 @@ export default function Signup() {
           />
           <br />
           <br />
-          <button onClick={handlesubmit}>Signup</button>
+          <button >Signup</button>
         </form>
         <a>Login</a>
       </div>
