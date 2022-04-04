@@ -90,7 +90,7 @@ export default function Signup() {
             type="password"
             value={password}
             onChange={(e)=>setpassword(e.target.value)}
-            id="lnames"
+            id="lname"
             name="password"
             defaultValue="Doe"
           />
