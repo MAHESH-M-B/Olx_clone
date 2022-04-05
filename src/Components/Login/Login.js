@@ -3,18 +3,18 @@ import { FirebaseContext } from '../../store/FirebaseContext';
 import Logo from '../../olx-logo.png';
 import './Login.css';
 import { useContext } from 'react';
-
+import { useHistory } from 'react-router-dom';
 function Login() {
  const [email,setemail]=useState('')
  const [password,setpassword]=useState('')
  const {firebase}=useContext(FirebaseContext)
-
+ const history=useHistory()
  const handlelogin=(e)=>{
    e.preventDefault()
    firebase.auth().signInWithEmailAndPassword(email,password).then(()=>{
-     alert('logged in')
+     history.push('/')
    }).catch((error)=>{
-    alert('error.message')
+    alert(error.message)
    })
  }
 
@@ -22,7 +22,7 @@ function Login() {
     <div>
       <div className="loginParentDiv">
         <img width="200px" height="200px" src={Logo}></img>
-        <form>
+        <form onSubmit={handlelogin}>
           <label htmlFor="fname">Email</label>
           <br />
           <input
@@ -48,7 +48,7 @@ function Login() {
           />
           <br />
           <br />
-          <button onClick={handlelogin} >Login</button>
+          <button >Login</button>
         </form>
         <a>Signup</a>
       </div>
