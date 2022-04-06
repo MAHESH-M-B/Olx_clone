@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { FirebaseContext } from '../../store/FirebaseContext';
+import { FirebaseContext } from '../../store/Context';
 import Logo from '../../olx-logo.png';
 import './Login.css';
 import { useContext } from 'react';
