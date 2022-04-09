@@ -12,6 +12,7 @@ function Header() {
   const {user}=useContext(AuthContext)
   const {firebase}=useContext(FirebaseContext)
   const history=useHistory()
+
   return (
     <div className="headerParentDiv">
       <div className="headerChildDiv">
@@ -43,7 +44,7 @@ function Header() {
           <hr />
         </div>
         <span onClick={()=>{
-            firebase.Auth().signOut()
+            firebase.auth().signOut()
             history.push('/login')
         }} >Logout</span>
         <div className="sellMenu">
