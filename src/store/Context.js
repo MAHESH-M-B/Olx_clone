@@ -1,4 +1,4 @@
-import {createContext,useState} from 'react'
+import react,{createContext,useState} from 'react'
 export const FirebaseContext =createContext(null);
 
 
