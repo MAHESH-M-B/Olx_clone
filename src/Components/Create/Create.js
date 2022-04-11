@@ -46,7 +46,9 @@ const Create = () => {
           <img alt="Posts" width="200px" height="200px" src=""></img>
           <form>
             <br />
-            <input type="file" />
+            <input type="file" onChange={(e)=>{
+              setupload(e.target.file[0])
+            }} />
             <br />
             <button className="uploadBtn">upload and Submit</button>
           </form>
