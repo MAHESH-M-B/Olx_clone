@@ -5,6 +5,7 @@ import Signup from './Components/Signup/Signup'
 import Login from './Components/Login/Login'
 import { AuthContext } from './store/Context';
 import {FirebaseContext} from './store/Context'
+import Create from './Components/Create/Create'
 /**
  * ?  =====Import Components=====
  */
@@ -34,6 +35,10 @@ function App() {
 
       <Route path='/login'>
         <Login/>
+      </Route>
+
+      <Route>
+        <Create/>
       </Route>
 
       
