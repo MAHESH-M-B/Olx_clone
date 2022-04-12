@@ -6,7 +6,7 @@ const Create = () => {
   const[name,setname]=useState()
   const [category,setcategory]=useState()
   const [price ,setprice ]=useState()
-  const [uplaod ,setupload]=useState()
+  const [image ,setimage]=useState()
   return (
     <Fragment>
       <Header />
@@ -21,7 +21,7 @@ const Create = () => {
               id="fname"
               name="Name"
               defaultValue="John"
-              value={name}
+          
               onChange={(e)=>setname(e.target.value)}
             />
             <br />
@@ -33,7 +33,7 @@ const Create = () => {
               id="fname"
               name="category"
               defaultValue="John"
-              value={category}
+              
               onChange={(e)=>setcategory(e.target.value)}
             />
             <br />
@@ -43,11 +43,11 @@ const Create = () => {
             <br />
           </form>
           <br />
-          <img alt="Posts" width="200px" height="200px" src=""></img>
+          <img alt="Posts" width="200px" height="200px" src="{image?URL.createObjectURL(image)}"></img>
           <form>
             <br />
             <input type="file" onChange={(e)=>{
-              setupload(e.target.file[0])
+              setimage(e.target.file[0])
             }} />
             <br />
             <button className="uploadBtn">upload and Submit</button>
