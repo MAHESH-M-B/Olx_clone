@@ -50,7 +50,7 @@ const Create = () => {
               setimage(e.target.file[0])
             }} />
             <br />
-            <button className="uploadBtn">upload and Submit</button>
+            <button className="uploadBtn">UPLOAD AND SUBMIT</button>
           </form>
         </div>
       </card>
