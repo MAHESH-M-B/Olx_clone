@@ -37,7 +37,7 @@ function App() {
         <Login/>
       </Route>
 
-      <Route>
+      <Route path='/create'>
         <Create/>
       </Route>
 
