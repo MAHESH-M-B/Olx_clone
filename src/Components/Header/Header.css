@@ -12,6 +12,10 @@
   justify-content: space-between;
   align-items: center;
 }
+.list1{
+  border: none;
+  background-color: none;
+}
 
 .placeSearch {
   width: 16em;
