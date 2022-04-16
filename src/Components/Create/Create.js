@@ -43,11 +43,11 @@ const Create = () => {
             <br />
           </form>
           <br />
-          <img alt="Posts" width="200px" height="200px" src="{image?URL.createObjectURL(image)}"></img>
+          <img alt="Posts" width="200px" height="200px" src={ image?URL.createObjectURL(image): ''}></img>
           <form>
             <br />
             <input type="file" onChange={(e)=>{
-              setimage(e.target.file[0])
+              setimage(e.target.files[0])
             }} />
             <br />
             <button className="uploadBtn">UPLOAD AND SUBMIT</button>
