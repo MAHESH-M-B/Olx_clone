@@ -1,12 +1,23 @@
 import React, { Fragment,useState } from 'react';
 import './Create.css';
 import Header from '../Header/Header';
+import { useContext } from 'react';
+import { AuthContext, FirebaseContext } from '../../store/Context';
 
 const Create = () => {
   const[name,setname]=useState()
   const [category,setcategory]=useState()
   const [price ,setprice ]=useState()
   const [image ,setimage]=useState()
+  const {firebase}=useContext(FirebaseContext)
+  const {user}=useContext(AuthContext)
+  const handlesubmit=()=>{
+          firebase.storage().ref(`/image/${image.name}`).put(image).then(({ref})=>{
+            ref.getDownloadURL().then((url)=>{
+              console.log(url);
+            })
+          })
+  }
   return (
     <Fragment>
       <Header />
@@ -44,14 +55,14 @@ const Create = () => {
           </form>
           <br />
           <img alt="Posts" width="200px" height="200px" src={ image?URL.createObjectURL(image): ''}></img>
-          <form>
+        
             <br />
             <input type="file" onChange={(e)=>{
               setimage(e.target.files[0])
             }} />
             <br />
-            <button className="uploadBtn">UPLOAD AND SUBMIT</button>
-          </form>
+            <button   onClick={handlesubmit} className="uploadBtn">UPLOAD AND SUBMIT</button>
+
         </div>
       </card>
     </Fragment>
