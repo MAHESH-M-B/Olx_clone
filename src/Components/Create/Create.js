@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { AuthContext, FirebaseContext } from '../../store/Context';
 
 const Create = () => {
-  const[name,setname]=useState()
+  const[name,Setname]=useState()
   const [category,setcategory]=useState()
   const [price ,setprice ]=useState()
   const [image ,setimage]=useState()
@@ -33,7 +33,7 @@ const Create = () => {
               name="Name"
               defaultValue="John"
           
-              onChange={(e)=>setname(e.target.value)}
+              onChange={(e)=>Setname(e.target.value)}
             />
             <br />
             <label htmlFor="fname">Category</label>
