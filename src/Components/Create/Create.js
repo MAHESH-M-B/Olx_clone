@@ -11,10 +11,19 @@ const Create = () => {
   const [image ,setimage]=useState()
   const {firebase}=useContext(FirebaseContext)
   const {user}=useContext(AuthContext)
+  const date=new Date()
   const handlesubmit=()=>{
           firebase.storage().ref(`/image/${image.name}`).put(image).then(({ref})=>{
             ref.getDownloadURL().then((url)=>{
               console.log(url);
+             firebase.firestore().collection('products').add({
+               name,
+               category,
+               price,
+               url,
+               userId:user.uid,
+               createdAt:date.toDateString()
+             })
             })
           })
   }
