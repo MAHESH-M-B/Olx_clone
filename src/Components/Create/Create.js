@@ -5,23 +5,28 @@ import { useContext } from 'react';
 import { AuthContext, FirebaseContext } from '../../store/Context';
 
 const Create = () => {
-  const[name,Setname]=useState()
-  const [category,setCategory]=useState()
-  const [price ,setprice ]=useState()
-  const [image ,setimage]=useState()
+  const[name,Setname]=useState('')
+  const [category,setCategory]=useState('')
+  const [price ,setprice ]=useState('')
+  const [image ,setimage]=useState('')
   const {firebase}=useContext(FirebaseContext)
   const {user}=useContext(AuthContext)
   const date=new Date()
   const handlesubmit=()=>{
-          firebase.storage().ref(`/image/${image.name}`).put(image).then(({ref})=>{
-            ref.getDownloadURL().then((url)=>{
-              firebase.firestore().collection('products').add({
-                url:url
-                
-                })
-            })
-          })
-  }
+   firebase.storage().ref(`/image/${image.name}`).put(image).then(({ref})=>{
+     ref.getDownloadURL().then((url)=>{
+       firebase.firestore().collection('productss').add({
+        name,
+        price,
+        category,
+         url,
+         createAt:date.toDateString(),
+         userID:user.uid
+       })
+     })
+   })
+ }
+
   return (
     <Fragment>
       <Header />
@@ -35,7 +40,7 @@ const Create = () => {
               type="text"
               id="fname"
               name="Name"
-              defaultValue="John"
+              // defaultValue="John"
           
               onChange={(e)=>Setname(e.target.value)}
             />
@@ -47,7 +52,7 @@ const Create = () => {
               type="text"
               id="fname"
               name="category"
-              defaultValue="John"
+              // defaultValue="John"
               
               onChange={(e)=>setCategory(e.target.value)}
             />
