@@ -3,7 +3,7 @@ import './Create.css';
 import Header from '../Header/Header';
 import { useContext } from 'react';
 import { AuthContext, FirebaseContext } from '../../store/Context';
-
+import { useHistory } from 'react-router-dom';
 const Create = () => {
   const[name,Setname]=useState('')
   const [category,setCategory]=useState('')
@@ -12,6 +12,7 @@ const Create = () => {
   const {firebase}=useContext(FirebaseContext)
   const {user}=useContext(AuthContext)
   const date=new Date()
+  const history=useHistory()
   const handlesubmit=()=>{
    firebase.storage().ref(`/image/${image.name}`).put(image).then(({ref})=>{
      ref.getDownloadURL().then((url)=>{
@@ -23,6 +24,7 @@ const Create = () => {
          createAt:date.toDateString(),
          userID:user.uid
        })
+       history.push('/')
      })
    })
  }
