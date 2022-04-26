@@ -13,6 +13,7 @@ const Create = () => {
   const {user}=useContext(AuthContext)
   const date=new Date()
   const history=useHistory()
+ 
   const handlesubmit=()=>{
    firebase.storage().ref(`/image/${image.name}`).put(image).then(({ref})=>{
      ref.getDownloadURL().then((url)=>{
@@ -21,8 +22,9 @@ const Create = () => {
         price,
         category,
          url,
-         createAt:date.toDateString(),
-         userID:user.uid
+         userID:user.uid,
+         createAt:date.toDateString()
+        
        })
        history.push('/')
      })
