@@ -6,12 +6,12 @@ import Login from './Components/Login/Login'
 import { AuthContext } from './store/Context';
 import {FirebaseContext} from './store/Context'
 import Create from './Components/Create/Create'
-import post from './store/PostContext'
+import Post from './store/PostContext'
+
 /**
  * ?  =====Import Components=====
  */
 import Home from './Pages/Home';
-import View from './Components/View/View';
 import ViewPost from './Pages/ViewPost';
 
 function App() {
@@ -25,7 +25,8 @@ function App() {
   return (
 
     <div>
-      <post>
+      <Post>
+      
     <Router>
 
       <Route exact path='/'>
@@ -45,10 +46,10 @@ function App() {
         <Create/>
       </Route>
 
-      <Route path='/view'>
+       <Route path='/view'>
       <ViewPost/>
 
-      </Route>
+      </Route> 
 
       
 
@@ -56,7 +57,7 @@ function App() {
      
      </Router>
 
-     </post>
+     </Post>
     </div>
   );
 }

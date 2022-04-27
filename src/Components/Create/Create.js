@@ -22,8 +22,8 @@ const Create = () => {
         price,
         category,
          url,
-         userID:user.uid,
-         createAt:date.toDateString()
+         createAt:date.toDateString(),
+         userID:user.uid
         
        })
        history.push('/')

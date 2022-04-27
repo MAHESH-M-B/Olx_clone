@@ -37,7 +37,8 @@ function Posts() {
             products.map(product=>{
       
          return<div className="card"  onClick={()=>{
-          setpostdetails(product).then(history.push('/view'))
+          setpostdetails(product)
+          history.push('/view')
         } }>
             <div className="favorite">
               <Heart></Heart>
